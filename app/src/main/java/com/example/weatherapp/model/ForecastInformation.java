@@ -18,6 +18,8 @@ public class ForecastInformation {
     public ForecastWeather getTodayForecast(){
         return new ForecastWeather(
                 this.forecastInformation.getData().get(0).getValidDate(),
+                this.city,
+                this.state,
                 this.forecastInformation.getData().get(0).getMaxTemp(),
                 this.forecastInformation.getData().get(0).getMinTemp(),
                 this.forecastInformation.getData().get(0).getProbPrecipitation(),
@@ -28,6 +30,8 @@ public class ForecastInformation {
     public ForecastWeather getTomorrowForecast(){
         return new ForecastWeather(
                 this.forecastInformation.getData().get(1).getValidDate(),
+                this.city,
+                this.state,
                 this.forecastInformation.getData().get(1).getMaxTemp(),
                 this.forecastInformation.getData().get(1).getMinTemp(),
                 this.forecastInformation.getData().get(1).getProbPrecipitation(),

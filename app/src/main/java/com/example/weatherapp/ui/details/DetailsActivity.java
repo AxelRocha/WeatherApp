@@ -71,7 +71,9 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     private void populateWeatherInformations(CurrentWeather mCurrentWeather, ForecastWeather mTodayForecasWeather,  ForecastWeather mTomorrowForecasWeather) {
 
-        cityWeather.setText("Precisão para a Cidade " + mCurrentWeather.getCity());
+        String location ="Precisão para a Cidade " + mTodayForecasWeather.getCity();
+
+        cityWeather.setText(location);
 
         populateCurrentWeatherInformation(mCurrentWeather, mTodayForecasWeather);
 
