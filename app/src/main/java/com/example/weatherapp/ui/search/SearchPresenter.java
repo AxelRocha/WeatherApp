@@ -13,4 +13,9 @@ public class SearchPresenter implements SearchContract.Presenter{
     public void start() {
 
     }
+
+    @Override
+    public void searchWeather(String city) {
+        mView.callSearchAcivity(city);
+    }
 }
