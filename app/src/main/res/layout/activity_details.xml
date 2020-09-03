@@ -1,9 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.details.DetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/todayTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="HOJE"
+            />
+
+        <TextView
+            android:id="@+id/labelTemperature1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/todayTV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="TEMPERATURA"/>
+
+        <TextView
+            android:id="@+id/currentCelsiusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelTemperature1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="30^C"/>
+
+        <TextView
+            android:id="@+id/minCurrentCelsiusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelMinimum1"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:text="23^C"/>
+
+        <TextView
+            android:id="@+id/maxCurrentCelsiusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_below="@id/labelMaximum1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:text="33^C"/>
+
+        <TextView
+            android:id="@+id/labelMinimum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/currentCelsiusTV"
+            android:layout_alignParentStart="true"
+            android:text="Mínima"/>
+
+        <TextView
+            android:id="@+id/labelMaximum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/currentCelsiusTV"
+            android:layout_alignParentEnd="true"
+            android:text="Máxima"/>
+
+        <TextView
+            android:id="@+id/currentDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/currentCelsiusTV"
+            android:layout_marginTop="32dp"
+            android:layout_centerHorizontal="true"
+            android:text="Descrição"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tomorrowTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="HOJE"
+            />
+
+        <TextView
+            android:id="@+id/labelTemperature2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tomorrowTV"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="TEMPERATURA"/>
+
+        <TextView
+            android:id="@+id/forecastCelsiusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelTemperature2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="30^C"/>
+
+        <TextView
+            android:id="@+id/minForecastCelsiusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelMinimum2"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:text="23^C"/>
+
+        <TextView
+            android:id="@+id/maxForecastCelsiusTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_below="@id/labelMaximum2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:text="33^C"/>
+
+        <TextView
+            android:id="@+id/labelMinimum2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/forecastCelsiusTV"
+            android:layout_alignParentStart="true"
+            android:text="Mínima"/>
+
+        <TextView
+            android:id="@+id/labelMaximum2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/forecastCelsiusTV"
+            android:layout_alignParentEnd="true"
+            android:text="Máxima"/>
+
+        <TextView
+            android:id="@+id/forecastDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/forecastCelsiusTV"
+            android:layout_marginTop="32dp"
+            android:layout_centerHorizontal="true"
+            android:text="Descrição"/>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
