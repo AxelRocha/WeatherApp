@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint"
@@ -32,13 +32,16 @@
                 android:layout_marginBottom="30dp"/>
 
             <EditText
-                android:layout_width="100dp"
+                android:id="@+id/cityEditText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:maxLines="1"
+                android:textAlignment="center"
+                android:maxLines="2"
                 android:layout_marginBottom="60dp"/>
 
             <Button
+                android:id="@+id/searchBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pesquisar"/>
@@ -47,39 +50,39 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/constraint"
-        android:layout_marginTop="40dp"
-        android:visibility="visible">
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/constraint"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:visibility="visible">-->
 
-        <TextView
-            android:id="@+id/citiesSearched"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Cidades Pesquisadas:"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/citiesSearched"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:text="Cidades Pesquisadas:"-->
+<!--            />-->
 
-        <TextView
-            android:id="@+id/noRegisterTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nenhum Registro"
-            android:layout_marginTop="100dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone"/>
+<!--        <TextView-->
+<!--            android:id="@+id/noRegisterTextView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Nenhum Registro"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:visibility="gone"/>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/registerRecyclerView"
-            android:visibility="visible"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/citiesSearched"
-            android:layout_centerHorizontal="true"/>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/registerRecyclerView"-->
+<!--            android:visibility="visible"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_below="@+id/citiesSearched"-->
+<!--            android:layout_centerHorizontal="true"/>-->
 
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
 </RelativeLayout>
