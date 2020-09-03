@@ -2,7 +2,9 @@ package com.example.weatherapp.model;
 
 import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
 
-public class ForecastWeather {
+import java.io.Serializable;
+
+public class ForecastWeather implements Serializable {
     private String city;
     private String state;
     private String country;
