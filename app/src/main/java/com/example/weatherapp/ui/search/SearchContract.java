@@ -8,7 +8,7 @@ import com.example.weatherapp.ui.base.BaseView;
 public interface SearchContract {
 
     interface View extends BaseView<SearchContract.Presenter>{
-        void callSearchAcivity(CurrentWeather currentWeather, ForecastWeather forecastWeather);
+        void callSearchAcivity(CurrentWeather currentWeather, ForecastWeather todayForecastWeather, ForecastWeather tomorrowForecastWeather);
 
         void closeKeyboard();
 

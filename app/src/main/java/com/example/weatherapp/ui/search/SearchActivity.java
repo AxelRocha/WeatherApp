@@ -46,10 +46,11 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
     }
 
     @Override
-    public void callSearchAcivity(CurrentWeather currentWeather, ForecastWeather forecastWeather) {
+    public void callSearchAcivity(CurrentWeather currentWeather, ForecastWeather todayForecastWeather, ForecastWeather tomorrowForecastWeather) {
         Intent intent = new Intent(this, DetailsActivity.class);
         intent.putExtra("currentWeather", currentWeather);
-        intent.putExtra("forecastWeather", forecastWeather);
+        intent.putExtra("todayForecastWeather", todayForecastWeather);
+        intent.putExtra("tomorrowForecastWeather", tomorrowForecastWeather);
         startActivity(intent);
     }
 

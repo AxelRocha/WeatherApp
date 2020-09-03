@@ -3,6 +3,7 @@ package com.example.weatherapp.ui.search;
 import android.util.Log;
 
 import com.example.weatherapp.model.CurrentWeather;
+import com.example.weatherapp.model.ForecastInformation;
 import com.example.weatherapp.model.ForecastWeather;
 import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherResquestResponse;
 import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
@@ -17,7 +18,8 @@ public class SearchPresenter implements SearchContract.Presenter{
 
     private final SearchContract.View mView;
     private CurrentWeather mCurrentWeather;
-    ForecastWeather mForecastWeather;
+    private ForecastWeather mTodayForecastWeather;
+    private ForecastWeather mTomorrowForecastWeather;
 
     public SearchPresenter(SearchContract.View mView) {
         this.mView = mView;
@@ -66,7 +68,9 @@ public class SearchPresenter implements SearchContract.Presenter{
             @Override
             public void onResponse(Call<ForecastWeatherRequestResponse> call, Response<ForecastWeatherRequestResponse> response) {
                 if (response.body() != null){
-                    mForecastWeather = new ForecastWeather(response.body());
+                    ForecastInformation forecastInformation = new ForecastInformation(response.body());
+                    mTodayForecastWeather = forecastInformation.getTodayForecast();
+                    mTomorrowForecastWeather = forecastInformation.getTomorrowForecast();
                     onApiResponse();
                 }
             }
@@ -79,8 +83,8 @@ public class SearchPresenter implements SearchContract.Presenter{
     }
 
     private void onApiResponse() {
-        if (mCurrentWeather != null && mForecastWeather != null){
-            mView.callSearchAcivity(mCurrentWeather, mForecastWeather);
+        if (mCurrentWeather != null && mTodayForecastWeather != null && mTomorrowForecastWeather != null){
+            mView.callSearchAcivity(mCurrentWeather, mTodayForecastWeather, mTomorrowForecastWeather);
             mView.clearEditText();
         }
     }
