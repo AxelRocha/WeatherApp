@@ -1,5 +1,7 @@
 package com.example.weatherapp.ui.search;
 
+import com.example.weatherapp.model.CurrentWeather;
+import com.example.weatherapp.model.ForecastWeather;
 import com.example.weatherapp.ui.base.BasePresenter;
 import com.example.weatherapp.ui.base.BaseView;
 
