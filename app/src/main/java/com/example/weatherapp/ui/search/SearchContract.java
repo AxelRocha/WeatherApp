@@ -2,6 +2,7 @@ package com.example.weatherapp.ui.search;
 
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastWeather;
+import com.example.weatherapp.network.GetDataService;
 import com.example.weatherapp.ui.base.BasePresenter;
 import com.example.weatherapp.ui.base.BaseView;
 
@@ -22,6 +23,6 @@ public interface SearchContract {
     }
 
     interface Presenter extends BasePresenter{
-        void searchWeather(String city);
+        void searchWeather(String city, GetDataService service);
     }
 }

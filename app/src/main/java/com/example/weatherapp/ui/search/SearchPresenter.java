@@ -1,14 +1,11 @@
 package com.example.weatherapp.ui.search;
 
-import android.util.Log;
-
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastInformation;
 import com.example.weatherapp.model.ForecastWeather;
 import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherRequestResponse;
 import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
 import com.example.weatherapp.network.GetDataService;
-import com.example.weatherapp.network.RetrofitClientInstance;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,10 +29,9 @@ public class SearchPresenter implements SearchContract.Presenter{
     }
 
     @Override
-    public void searchWeather(String city) {
+    public void searchWeather(String city, GetDataService service) {
 
         if (!city.isEmpty()){
-            GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
             getCurrentWeather(city, service);
 

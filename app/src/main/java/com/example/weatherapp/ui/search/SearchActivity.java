@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.example.weatherapp.R;
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastWeather;
+import com.example.weatherapp.network.GetDataService;
+import com.example.weatherapp.network.RetrofitClientInstance;
 import com.example.weatherapp.ui.details.DetailsActivity;
 
 public class SearchActivity extends AppCompatActivity implements SearchContract.View{
@@ -35,7 +37,8 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPresenter.searchWeather(searchEditText.getText().toString());
+                GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+                mPresenter.searchWeather(searchEditText.getText().toString(), service);
             }
         });
     }
