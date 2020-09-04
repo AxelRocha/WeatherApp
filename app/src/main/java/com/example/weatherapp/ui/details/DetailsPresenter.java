@@ -13,4 +13,9 @@ public class DetailsPresenter implements DetailsContract.Presenter {
     public void start() {
 
     }
+
+    @Override
+    public void redoSearch() {
+        mView.returnToSearchActivity();
+    }
 }

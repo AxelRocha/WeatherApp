@@ -29,8 +29,7 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
 
         mPresenter =  new SearchPresenter(this);
 
-        searchEditText = findViewById(R.id.searchEditText);
-        searchBtn = findViewById(R.id.searchBtn);
+        initViews();
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +37,12 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
                 mPresenter.searchWeather(searchEditText.getText().toString());
             }
         });
+    }
+
+    private void initViews() {
+
+        searchEditText = findViewById(R.id.searchEditText);
+        searchBtn = findViewById(R.id.searchBtn);
     }
 
     @Override

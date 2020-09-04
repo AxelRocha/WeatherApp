@@ -5,23 +5,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    android:background="@color/backgroundColor"
+    tools:context=".ui.search.SearchActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#EFEFEF"
+        android:textSize="20sp"
+        android:text="Previsão do Tempo "
+        />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
         android:focusableInTouchMode="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp"
         android:padding="10dp"
-        android:background="@drawable/curve_boder">
+        android:background="@drawable/curve_boder_colored">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Digite a Cidade Que Deseja Saber o Clima"
+            android:text="Digite o nome da Cidade"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="#EFEFEF"
+            android:textSize="18sp"
             android:layout_marginBottom="30dp"/>
 
         <EditText
@@ -31,12 +50,20 @@
             android:ems="10"
             android:textAlignment="center"
             android:maxLines="2"
-            android:layout_marginBottom="48dp"/>
+            android:inputType="textCapWords|textPersonName"
+            android:textColor="#EFEFEF"
+            android:backgroundTint="#EFEFEF"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="26dp"/>
 
         <Button
             android:id="@+id/searchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:textColor="#EFEFEF"
+            android:background="@drawable/curve_border"
             android:text="Pesquisar"/>
 
     </LinearLayout>

@@ -3,6 +3,8 @@ package com.example.weatherapp.ui.details;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.weatherapp.R;
@@ -29,6 +31,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
     private TextView forecastMaxTemperature;
     private TextView forecastDescription;
 
+    private Button redoSearchBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         mPresenter = new DetailsPresenter(this);
 
         initViews();
+
+        redoSearchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPresenter.redoSearch();
+            }
+        });
     }
 
     private void initViews() {
@@ -54,6 +65,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         forecastMinTemperature = findViewById(R.id.minForecastCelsiusTV);
         forecastMaxTemperature = findViewById(R.id.maxForecastCelsiusTV);
         forecastDescription = findViewById(R.id.forecastDescription);
+
+        redoSearchBtn = findViewById(R.id.redoSearch);
 
     }
 
@@ -73,7 +86,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     private void populateWeatherInformations(CurrentWeather mCurrentWeather, ForecastWeather mTodayForecasWeather,  ForecastWeather mTomorrowForecasWeather) {
 
-        String location ="Precisão para a Cidade " + mTodayForecasWeather.getCity();
+        String location ="Precisão para " + mTodayForecasWeather.getCity();
         cityWeather.setText(location);
 
         populateCurrentWeatherInformation(mCurrentWeather, mTodayForecasWeather);
@@ -86,8 +99,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         String currentDate = "Amanhã (" + mForecastWeather.getValidDate() + ")";
         this.forecastDate.setText(currentDate);
 
-        forecastMinTemperature.setText(mForecastWeather.getMinTemp());
-        forecastMaxTemperature.setText(mForecastWeather.getMaxTemp());
+        forecastMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
+        forecastMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
         forecastDescription.setText(mForecastWeather.getDescription());
     }
 
@@ -96,10 +109,15 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         String currentDate = "Hoje (" + mForecastWeather.getValidDate() + ")";
         this.currentDate.setText(currentDate);
 
-        currentTemperature.setText(mCurrentWeather.getTemperature());
-        currentMinTemperature.setText(mForecastWeather.getMinTemp());
-        currentMaxTemperature.setText(mForecastWeather.getMaxTemp());
+        currentTemperature.setText(mCurrentWeather.getTemperature() + " °C");
+        currentMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
+        currentMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
         currentDescription.setText(mCurrentWeather.getDescription());
 
+    }
+
+    @Override
+    public void returnToSearchActivity() {
+        finish();
     }
 }

@@ -7,4 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="word_title">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
 </resources>
