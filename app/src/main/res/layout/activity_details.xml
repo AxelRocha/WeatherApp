@@ -228,7 +228,7 @@
                 android:id="@+id/forecasttWeatherIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/weather_820d" />
+                tools:src="@drawable/weather_820d" />
 
         </RelativeLayout>
 
