@@ -3,6 +3,7 @@ package com.example.weatherapp.ui.details;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -94,16 +95,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         populateForecastWeatherInformation(mTomorrowForecasWeather);
     }
 
-    private void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
-
-        String currentDate = "Amanhã (" + mForecastWeather.getValidDate() + ")";
-        this.forecastDate.setText(currentDate);
-
-        forecastMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
-        forecastMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
-        forecastDescription.setText(mForecastWeather.getDescription());
-    }
-
     private void populateCurrentWeatherInformation(CurrentWeather mCurrentWeather, ForecastWeather mForecastWeather) {
 
         String currentDate = "Hoje (" + mForecastWeather.getValidDate() + ")";
@@ -113,6 +104,17 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         currentMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
         currentMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
         currentDescription.setText(mCurrentWeather.getDescription());
+
+    }
+
+    private void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
+
+        String currentDate = "Amanhã (" + mForecastWeather.getValidDate() + ")";
+        this.forecastDate.setText(currentDate);
+
+        forecastMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
+        forecastMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
+        forecastDescription.setText(mForecastWeather.getDescription());
 
     }
 
