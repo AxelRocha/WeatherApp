@@ -76,22 +76,28 @@ public class DetailsPresenter implements DetailsContract.Presenter {
             } else {
                 code = R.drawable.weather_830n;
             }
-        } else {
+        } else if (code == 804){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_840d;
             } else {
                 code = R.drawable.weather_840n;
             }
+        } else {
+            code = R.drawable.no_weather_101;
         }
 
         return code;
     }
 
     int getCloudyIcon(int code, boolean isForecast) {
-        if (isSunUp() || isForecast){
-            code = R.drawable.weather_710d;
+        if (code == 700 || code == 711 || code == 721 || code == 731 || code == 741 || code == 751){
+            if (isSunUp() || isForecast){
+                code = R.drawable.weather_710d;
+            } else {
+                code = R.drawable.weather_710n;
+            }
         } else {
-            code = R.drawable.weather_710n;
+            code = R.drawable.no_weather_101;
         }
 
         return code;
@@ -110,12 +116,14 @@ public class DetailsPresenter implements DetailsContract.Presenter {
             } else {
                 code = R.drawable.weather_620n;
             }
-        } else {
+        } else if (code == 611 || code == 612){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_630d;
             } else {
                 code = R.drawable.weather_630n;
             }
+        } else {
+            code = R.drawable.no_weather_101;
         }
 
         return code;
@@ -134,40 +142,51 @@ public class DetailsPresenter implements DetailsContract.Presenter {
             } else {
                 code = R.drawable.weather_520n;
             }
-        } else{
+        } else if (code == 521 || code == 522){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_530d;
             } else {
                 code = R.drawable.weather_530n;
             }
+        } else {
+            code = R.drawable.no_weather_101;
         }
+
         return code;
     }
 
     int getDrizzleIcon(int code, boolean isForecast) {
-        if (isSunUp() || isForecast){
-            code = R.drawable.weather_301d;
+        if (code == 300 || code == 301 || code == 302){
+            if (isSunUp() || isForecast){
+                code = R.drawable.weather_301d;
+            } else {
+                code = R.drawable.weather_301n;
+            }
         } else {
-            code = R.drawable.weather_301n;
+            code = R.drawable.no_weather_101;
         }
+
         return code;
     }
 
     int getThunderIcon(int code, boolean isForecast) {
-        if (code % 10 != 0){
+        if (code == 200 || code == 201 || code == 202){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_201d;
             } else {
                 code = R.drawable.weather_201n;
             }
 
-        } else {
+        } else if (code == 230 || code == 231 || code == 232 || code == 233){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_230d;
             } else {
                 code = R.drawable.weather_230n;
             }
+        } else {
+            code = R.drawable.no_weather_101;
         }
+
         return code;
     }
 
