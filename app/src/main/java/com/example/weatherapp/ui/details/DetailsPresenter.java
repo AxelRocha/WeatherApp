@@ -27,9 +27,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
     public void getWeatherIcon(int code, boolean isForecast) {
         int weatherCode;
 
-        code = code / 100;
-
-        switch (code){
+        switch (code / 100){
             case 2:
                 weatherCode = getThunderIcon(code, isForecast);
                 break;
