@@ -29,11 +29,18 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginTop="100dp"
-        android:background="@drawable/curve_boder_colored"
-        android:padding="8dp"
+        android:foreground="@drawable/curve_border"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifCurrent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/weather_gif_801d"
+            />
 
         <TextView
             android:id="@+id/currentDateTV"
@@ -43,6 +50,10 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             tools:text="Hoje"
             />
 
@@ -55,6 +66,10 @@
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             android:text="TEMPERATURA"/>
 
         <TextView
@@ -66,6 +81,10 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             android:textSize="22sp"
             tools:text="30°C"/>
 
@@ -86,6 +105,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 android:text="Mínima"/>
 
             <TextView
@@ -93,6 +116,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 tools:text="23^C"/>
 
         </LinearLayout>
@@ -129,6 +156,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 android:text="Máxima"/>
 
             <TextView
@@ -136,6 +167,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 tools:text="33^C"/>
 
         </LinearLayout>
@@ -149,6 +184,10 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             tools:text="Descrição"/>
 
     </RelativeLayout>
@@ -160,12 +199,19 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="100dp"
-        android:background="@drawable/curve_boder_colored"
-        android:padding="8dp"
+        android:foreground="@drawable/curve_border"
         android:layout_marginTop="48dp"
         app:layout_constraintTop_toBottomOf="@+id/currentForecast"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifForecast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/weather_gif_801d"
+            />
 
         <TextView
             android:id="@+id/forecastDayTV"
@@ -175,6 +221,10 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             tools:text="Amanhã"
             />
 
@@ -187,6 +237,10 @@
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             android:text="PREVISÃO"/>
 
         <LinearLayout
@@ -206,6 +260,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 android:text="Mínima"/>
 
             <TextView
@@ -213,6 +271,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 tools:text="23^C"/>
 
         </LinearLayout>
@@ -248,6 +310,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 android:text="Máxima"/>
 
             <TextView
@@ -255,6 +321,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#EFEFEF"
+                android:shadowColor="#000000"
+                android:shadowDx="4"
+                android:shadowDy="4"
+                android:shadowRadius="0.1"
                 android:text="33^C"/>
 
         </LinearLayout>
@@ -268,6 +338,10 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="0.1"
             android:text="Descrição"/>
 
     </RelativeLayout>

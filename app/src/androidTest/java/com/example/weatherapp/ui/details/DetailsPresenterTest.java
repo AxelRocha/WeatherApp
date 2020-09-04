@@ -1,5 +1,7 @@
 package com.example.weatherapp.ui.details;
 
+import com.example.weatherapp.model.WeatherAssets;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -55,62 +57,74 @@ public class DetailsPresenterTest {
     @Test
     public void getSunnyIcon() {
         DetailsPresenter presenter = new DetailsPresenter(view);
-        int icon = 0;
+        WeatherAssets weatherAssets;
 
-        icon = presenter.getSunnyIcon(800, true);
+        weatherAssets = presenter.getSunnyAssets(800, true);
 
-        Assert.assertNotEquals(0,icon);
+        Assert.assertNotNull(weatherAssets);
+        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
+        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
     }
 
     @Test
     public void getCloudyIcon() {
         DetailsPresenter presenter = new DetailsPresenter(view);
-        int icon = 0;
+        WeatherAssets weatherAssets;
 
-        icon = presenter.getCloudyIcon(700, false);
+        weatherAssets = presenter.getSunnyAssets(800, true);
 
-        Assert.assertNotEquals(0,icon);
+        Assert.assertNotNull(weatherAssets);
+        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
+        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
     }
 
     @Test
     public void getSnowIcon() {
         DetailsPresenter presenter = new DetailsPresenter(view);
-        int icon = 0;
+        WeatherAssets weatherAssets;
 
-        icon = presenter.getSnowIcon(600, false);
+        weatherAssets = presenter.getSunnyAssets(600, true);
 
-        Assert.assertNotEquals(0,icon);
+        Assert.assertNotNull(weatherAssets);
+        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
+        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
     }
 
     @Test
     public void getRainIcon() {
         DetailsPresenter presenter = new DetailsPresenter(view);
-        int icon = 0;
+        WeatherAssets weatherAssets;
 
-        icon = presenter.getRainIcon(500, false);
+        weatherAssets = presenter.getSunnyAssets(500, true);
 
-        Assert.assertNotEquals(0,icon);
+        Assert.assertNotNull(weatherAssets);
+        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
+        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
     }
 
     @Test
     public void getDrizzleIcon() {
         DetailsPresenter presenter = new DetailsPresenter(view);
-        int icon = 0;
+        WeatherAssets weatherAssets;
 
-        icon = presenter.getDrizzleIcon(300,false);
+        weatherAssets = presenter.getSunnyAssets(300, true);
 
-        Assert.assertNotEquals(0,icon);
+        Assert.assertNotNull(weatherAssets);
+        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
+        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
     }
 
 
     @Test
     public void getThunderIcon() {
         DetailsPresenter presenter = new DetailsPresenter(view);
-        int icon = 0;
+        WeatherAssets weatherAssets;
 
-        icon = presenter.getThunderIcon(200,false);
+        weatherAssets = presenter.getSunnyAssets(200, true);
 
-        Assert.assertNotEquals(0,icon);
+        Assert.assertNotNull(weatherAssets);
+        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
+        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
     }
 
     @Test

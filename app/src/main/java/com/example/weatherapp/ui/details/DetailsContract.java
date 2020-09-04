@@ -11,6 +11,10 @@ public interface DetailsContract {
         void setCurrentWeatherIcon(int weatherIcon);
 
         void setForecastWeatherIcon(int weatherIcon);
+
+        void setCurrentWeatherBackground(int weatherBackground);
+
+        void setForecastWeatherBackground(int weatherBackground);
     }
 
     interface Presenter extends BasePresenter {
