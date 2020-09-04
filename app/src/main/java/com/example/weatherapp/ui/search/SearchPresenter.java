@@ -1,5 +1,7 @@
 package com.example.weatherapp.ui.search;
 
+import android.util.Log;
+
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastInformation;
 import com.example.weatherapp.model.ForecastWeather;
