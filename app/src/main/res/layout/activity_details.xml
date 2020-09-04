@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/todayTV"
+            android:id="@+id/currentDateTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -41,7 +41,7 @@
             android:id="@+id/labelTemperature1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/todayTV"
+            android:layout_below="@id/currentDateTV"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:text="TEMPERATURA"/>
@@ -125,7 +125,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/tomorrowTV"
+            android:id="@+id/forecastDayTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -137,7 +137,7 @@
             android:id="@+id/labelTemperature2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tomorrowTV"
+            android:layout_below="@id/forecastDayTV"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:text="TEMPERATURA"/>
