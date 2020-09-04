@@ -6,7 +6,7 @@ Objetivo era criar um App de Previsão do Tempo, onde na tela inicial é digitad
 
 * Android Studio 4.0(mínimo)
 * Java 8 (mínimo)
-* Android Sdk 21 (mínimo)
+* Android Sdk 23 (mínimo)
 * Gradle 6.1.1 (mínimo)
 
 ## Funcionalidades:
