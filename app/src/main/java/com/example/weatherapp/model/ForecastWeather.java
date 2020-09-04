@@ -1,7 +1,5 @@
 package com.example.weatherapp.model;
 
-import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
-
 import java.io.Serializable;
 
 public class ForecastWeather implements Serializable {

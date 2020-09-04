@@ -1,8 +1,5 @@
 package com.example.weatherapp.ui.details;
 
-import com.example.weatherapp.model.CurrentWeather;
-import com.example.weatherapp.ui.search.SearchContract;
-
 public class DetailsPresenter implements DetailsContract.Presenter {
 
     private final DetailsContract.View mView;
