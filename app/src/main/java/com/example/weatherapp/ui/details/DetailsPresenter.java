@@ -57,7 +57,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         }
     }
 
-    private int getSunnyIcon(int code, boolean isForecast) {
+    int getSunnyIcon(int code, boolean isForecast) {
         if (code == 800){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_810d;
@@ -87,7 +87,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         return code;
     }
 
-    private int getCloudyIcon(int code, boolean isForecast) {
+    int getCloudyIcon(int code, boolean isForecast) {
         if (isSunUp() || isForecast){
             code = R.drawable.weather_710d;
         } else {
@@ -97,7 +97,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         return code;
     }
 
-    private int getSnowIcon(int code, boolean isForecast) {
+    int getSnowIcon(int code, boolean isForecast) {
         if (code == 600 || code == 610 || code == 621){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_610d;
@@ -121,7 +121,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         return code;
     }
 
-    private int getRainIcon(int code, boolean isForecast) {
+    int getRainIcon(int code, boolean isForecast) {
         if (code == 500 || code == 501 || code == 511 || code == 520){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_501d;
@@ -144,7 +144,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         return code;
     }
 
-    private int getDrizzleIcon(int code, boolean isForecast) {
+    int getDrizzleIcon(int code, boolean isForecast) {
         if (isSunUp() || isForecast){
             code = R.drawable.weather_301d;
         } else {
@@ -153,7 +153,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         return code;
     }
 
-    private int getThunderIcon(int code, boolean isForecast) {
+    int getThunderIcon(int code, boolean isForecast) {
         if (code % 10 != 0){
             if (isSunUp() || isForecast){
                 code = R.drawable.weather_201d;
@@ -171,7 +171,7 @@ public class DetailsPresenter implements DetailsContract.Presenter {
         return code;
     }
 
-    private boolean isSunUp() {
+    boolean isSunUp() {
         int currentHour;
 
         Calendar rightNow = Calendar.getInstance();
