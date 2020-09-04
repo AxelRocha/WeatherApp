@@ -12,6 +12,11 @@ import com.example.weatherapp.R;
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastWeather;
 
+import java.io.IOException;
+
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
+
 public class DetailsActivity extends AppCompatActivity implements DetailsContract.View{
 
     private DetailsContract.Presenter mPresenter;
@@ -27,12 +32,14 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
     private TextView currentMaxTemperature;
     private TextView currentDescription;
     private ImageView currentWeatherIcon;
+    private GifImageView currentGif;
 
     private TextView forecastDate;
     private TextView forecastMinTemperature;
     private TextView forecastMaxTemperature;
     private TextView forecastDescription;
     private ImageView forecastWeatherIcon;
+    private GifImageView forecastGif;
 
     private Button redoSearchBtn;
 
@@ -64,12 +71,14 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         currentMaxTemperature = findViewById(R.id.maxCurrentCelsiusTV);
         currentDescription = findViewById(R.id.currentDescription);
         currentWeatherIcon = findViewById(R.id.currentWeatherIcon);
+        currentGif = findViewById(R.id.gifCurrent);
 
         forecastDate = findViewById(R.id.forecastDayTV);
         forecastMinTemperature = findViewById(R.id.minForecastCelsiusTV);
         forecastMaxTemperature = findViewById(R.id.maxForecastCelsiusTV);
         forecastDescription = findViewById(R.id.forecastDescription);
         forecastWeatherIcon = findViewById(R.id.forecasttWeatherIcon);
+        forecastGif = findViewById(R.id.gifForecast);
 
         redoSearchBtn = findViewById(R.id.redoSearch);
 
@@ -139,5 +148,27 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
     @Override
     public void setForecastWeatherIcon(int weatherIcon) {
         forecastWeatherIcon.setBackgroundResource(weatherIcon);
+    }
+
+    @Override
+    public void setCurrentWeatherBackground(int weatherBackground) {
+        try {
+            GifDrawable gif = new GifDrawable(getResources(), weatherBackground);
+            gif.setCornerRadius(40);
+            currentGif.setBackground(gif);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void setForecastWeatherBackground(int weatherBackground) {
+        try {
+            GifDrawable gif = new GifDrawable(getResources(), weatherBackground);
+            gif.setCornerRadius(40);
+            forecastGif.setBackground(gif);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
