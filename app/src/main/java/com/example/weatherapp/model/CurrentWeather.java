@@ -1,6 +1,6 @@
 package com.example.weatherapp.model;
 
-import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherResquestResponse.*;
+import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherInformation;
 
 import java.io.Serializable;
 
