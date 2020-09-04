@@ -1,7 +1,5 @@
 package com.example.weatherapp.ui.search;
 
-import android.util.Log;
-
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastInformation;
 import com.example.weatherapp.model.ForecastWeather;
@@ -62,8 +60,6 @@ public class SearchPresenter implements SearchContract.Presenter{
 
             @Override
             public void onFailure(Call<CurrentWeatherRequestResponse> call, Throwable t) {
-                Log.e("RequestFail","Falha ao chamar currentcast");
-                mView.warnErrorOccurred();
             }
         });
     }
@@ -86,7 +82,7 @@ public class SearchPresenter implements SearchContract.Presenter{
 
             @Override
             public void onFailure(Call<ForecastWeatherRequestResponse> call, Throwable t) {
-                Log.e("RequestFail","Falha ao chamar forecast");
+                mView.warnErrorOccurred();
             }
         });
     }
