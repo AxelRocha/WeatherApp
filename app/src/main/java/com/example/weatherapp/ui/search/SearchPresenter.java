@@ -90,6 +90,9 @@ public class SearchPresenter implements SearchContract.Presenter{
     private void onApiResponse() {
         if (mCurrentWeather != null && mTodayForecastWeather != null && mTomorrowForecastWeather != null){
             mView.callSearchAcivity(mCurrentWeather, mTodayForecastWeather, mTomorrowForecastWeather);
+            mCurrentWeather = null;
+            mTodayForecastWeather = null;
+            mTomorrowForecastWeather = null;
             mView.clearEditText();
         }
     }
