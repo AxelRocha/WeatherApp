@@ -8,8 +8,13 @@ public class ForecastWeatherDescription{
     @Expose
     private String description;
 
-    public ForecastWeatherDescription(String description) {
+    @SerializedName("code")
+    @Expose
+    private String weatherCode;
+
+    public ForecastWeatherDescription(String description, String weatherCode) {
         this.description = description;
+        this.weatherCode = weatherCode;
     }
 
     public String getDescription() {
@@ -18,5 +23,13 @@ public class ForecastWeatherDescription{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getWeatherCode() {
+        return weatherCode;
+    }
+
+    public void setWeatherCode(String weatherCode) {
+        this.weatherCode = weatherCode;
     }
 }

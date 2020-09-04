@@ -10,8 +10,9 @@ public class ForecastWeather implements Serializable {
     private String minTemp;
     private String probPrecipitation;
     private String description;
+    private String weatherCode;
 
-    public ForecastWeather(String validDate, String city, String state, String maxTemp, String minTemp, String probPrecipitation, String description) {
+    public ForecastWeather(String validDate, String city, String state, String maxTemp, String minTemp, String probPrecipitation, String description, String weatherCode) {
         this.validDate = validDate;
         this.city = city;
         this.state = state;
@@ -19,6 +20,7 @@ public class ForecastWeather implements Serializable {
         this.minTemp = minTemp;
         this.probPrecipitation = probPrecipitation;
         this.description = description;
+        this.weatherCode = weatherCode;
     }
 
     public String getValidDate() {
@@ -75,5 +77,13 @@ public class ForecastWeather implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getWeatherCode() {
+        return weatherCode;
+    }
+
+    public void setWeatherCode(String weatherCode) {
+        this.weatherCode = weatherCode;
     }
 }

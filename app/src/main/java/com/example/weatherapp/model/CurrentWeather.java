@@ -9,11 +9,13 @@ public class CurrentWeather implements Serializable {
     private String city;
     private String description;
     private String temperature;
+    private String weatherCode;
 
     public CurrentWeather(CurrentWeatherInformation information) {
         this.city = information.getCity();
-        this.description = information.getCurrentWeatherDescription().getDescription();
         this.temperature = information.getTemperature();
+        this.description = information.getCurrentWeatherDescription().getDescription();
+        this.weatherCode = information.getCurrentWeatherDescription().getWeatherCode();
     }
 
     public String getCity() {
@@ -38,5 +40,13 @@ public class CurrentWeather implements Serializable {
 
     public void setTemperature(String temperature) {
         this.temperature = temperature;
+    }
+
+    public String getWeatherCode() {
+        return weatherCode;
+    }
+
+    public void setWeatherCode(String weatherCode) {
+        this.weatherCode = weatherCode;
     }
 }
