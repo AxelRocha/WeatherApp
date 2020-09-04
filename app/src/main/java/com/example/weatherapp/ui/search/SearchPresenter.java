@@ -5,7 +5,7 @@ import android.util.Log;
 import com.example.weatherapp.model.CurrentWeather;
 import com.example.weatherapp.model.ForecastInformation;
 import com.example.weatherapp.model.ForecastWeather;
-import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherResquestResponse;
+import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherRequestResponse;
 import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
 import com.example.weatherapp.network.GetDataService;
 import com.example.weatherapp.network.RetrofitClientInstance;
@@ -44,10 +44,10 @@ public class SearchPresenter implements SearchContract.Presenter{
 
     private void getCurrentWeather(String city, GetDataService service){
 
-        Call<CurrentWeatherResquestResponse> callCurrent = service.getCurrentWeather(city);
-        callCurrent.enqueue(new Callback<CurrentWeatherResquestResponse>() {
+        Call<CurrentWeatherRequestResponse> callCurrent = service.getCurrentWeather(city);
+        callCurrent.enqueue(new Callback<CurrentWeatherRequestResponse>() {
             @Override
-            public void onResponse(Call<CurrentWeatherResquestResponse> call, Response<CurrentWeatherResquestResponse> response) {
+            public void onResponse(Call<CurrentWeatherRequestResponse> call, Response<CurrentWeatherRequestResponse> response) {
                 if (response.body() != null){
                     mCurrentWeather = new CurrentWeather(response.body().getData().get(0));
                     onApiResponse();
@@ -55,7 +55,7 @@ public class SearchPresenter implements SearchContract.Presenter{
             }
 
             @Override
-            public void onFailure(Call<CurrentWeatherResquestResponse> call, Throwable t) {
+            public void onFailure(Call<CurrentWeatherRequestResponse> call, Throwable t) {
                 onApiResponse();
             }
         });
