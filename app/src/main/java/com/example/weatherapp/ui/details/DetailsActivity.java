@@ -3,9 +3,9 @@ package com.example.weatherapp.ui.details;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.weatherapp.R;
@@ -26,11 +26,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
     private TextView currentMinTemperature;
     private TextView currentMaxTemperature;
     private TextView currentDescription;
+    private ImageView currentWeatherIcon;
 
     private TextView forecastDate;
     private TextView forecastMinTemperature;
     private TextView forecastMaxTemperature;
     private TextView forecastDescription;
+    private ImageView forecastWeatherIcon;
 
     private Button redoSearchBtn;
 
@@ -61,11 +63,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         currentMinTemperature = findViewById(R.id.minCurrentCelsiusTV);
         currentMaxTemperature = findViewById(R.id.maxCurrentCelsiusTV);
         currentDescription = findViewById(R.id.currentDescription);
+        currentWeatherIcon = findViewById(R.id.currentWeatherIcon);
 
         forecastDate = findViewById(R.id.forecastDayTV);
         forecastMinTemperature = findViewById(R.id.minForecastCelsiusTV);
         forecastMaxTemperature = findViewById(R.id.maxForecastCelsiusTV);
         forecastDescription = findViewById(R.id.forecastDescription);
+        forecastWeatherIcon = findViewById(R.id.forecasttWeatherIcon);
 
         redoSearchBtn = findViewById(R.id.redoSearch);
 
@@ -100,6 +104,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         String currentDate = "Hoje (" + mForecastWeather.getValidDate() + ")";
         this.currentDate.setText(currentDate);
 
+        mPresenter.getWeatherIcon(Integer.parseInt(mCurrentWeather.getWeatherCode()), false);
+
         currentTemperature.setText(mCurrentWeather.getTemperature() + " °C");
         currentMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
         currentMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
@@ -112,6 +118,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         String currentDate = "Amanhã (" + mForecastWeather.getValidDate() + ")";
         this.forecastDate.setText(currentDate);
 
+        mPresenter.getWeatherIcon(Integer.parseInt(mForecastWeather.getWeatherCode()), true);
+
         forecastMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
         forecastMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
         forecastDescription.setText(mForecastWeather.getDescription());
@@ -121,5 +129,15 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
     @Override
     public void returnToSearchActivity() {
         finish();
+    }
+
+    @Override
+    public void setCurrentWeatherIcon(int weatherIcon) {
+        currentWeatherIcon.setBackgroundResource(weatherIcon);
+    }
+
+    @Override
+    public void setForecastWeatherIcon(int weatherIcon) {
+        forecastWeatherIcon.setBackgroundResource(weatherIcon);
     }
 }

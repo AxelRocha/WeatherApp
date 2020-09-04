@@ -55,7 +55,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
-            android:text="TEMPERATURAS"/>
+            android:text="TEMPERATURA"/>
 
         <TextView
             android:id="@+id/currentCelsiusTV"
@@ -67,36 +67,10 @@
             android:fontFamily="sans-serif-medium"
             android:textColor="#EFEFEF"
             android:textSize="22sp"
-            tools:text="30^C"/>
+            tools:text="30°C"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/labelTemperature1"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="36dp"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/labelMaximum1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="#EFEFEF"
-                android:text="Máxima"/>
-
-            <TextView
-                android:id="@+id/maxCurrentCelsiusTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#EFEFEF"
-                tools:text="33^C"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/minCLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/labelTemperature1"
@@ -120,6 +94,49 @@
                 android:layout_height="wrap_content"
                 android:textColor="#EFEFEF"
                 tools:text="23^C"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:baseline="@+id/minCLinearLayout"
+            android:layout_below="@+id/currentCelsiusTV">
+
+            <ImageView
+                android:id="@+id/currentWeatherIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@drawable/weather_820d" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/maxCLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelTemperature1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="36dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/labelMaximum1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#EFEFEF"
+                android:text="Máxima"/>
+
+            <TextView
+                android:id="@+id/maxCurrentCelsiusTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#EFEFEF"
+                tools:text="33^C"/>
 
         </LinearLayout>
 
@@ -173,33 +190,7 @@
             android:text="PREVISÃO"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/labelTemperature2"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/labelMaximum2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="#EFEFEF"
-                android:text="Máxima"/>
-
-            <TextView
-                android:id="@+id/maxForecastCelsiusTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#EFEFEF"
-                android:text="33^C"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/minFLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/labelTemperature2"
@@ -223,6 +214,48 @@
                 android:layout_height="wrap_content"
                 android:textColor="#EFEFEF"
                 tools:text="23^C"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/labelTemperature2">
+
+            <ImageView
+                android:id="@+id/forecasttWeatherIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/weather_820d" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/labelTemperature2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/labelMaximum2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#EFEFEF"
+                android:text="Máxima"/>
+
+            <TextView
+                android:id="@+id/maxForecastCelsiusTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#EFEFEF"
+                android:text="33^C"/>
 
         </LinearLayout>
 
