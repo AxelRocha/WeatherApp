@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.weatherapp.R;
 import com.example.weatherapp.model.CurrentWeather;
@@ -71,5 +72,20 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
     @Override
     public void clearEditText() {
         searchEditText.setText("");
+    }
+
+    @Override
+    public void warnEmptyTextView() {
+        Toast.makeText(this, "Digite uma cidade para pesquisar", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void warnCityNotFound() {
+        Toast.makeText(this, "Cidade pesquisada não encontrada", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void warnErrorOccurred() {
+        Toast.makeText(this, "Não foi possível realizar a pesquisa", Toast.LENGTH_SHORT).show();
     }
 }

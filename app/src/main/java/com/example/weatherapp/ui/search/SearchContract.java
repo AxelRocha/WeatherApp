@@ -13,6 +13,12 @@ public interface SearchContract {
         void closeKeyboard();
 
         void clearEditText();
+
+        void warnEmptyTextView();
+
+        void warnCityNotFound();
+
+        void warnErrorOccurred();
     }
 
     interface Presenter extends BasePresenter{

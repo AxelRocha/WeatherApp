@@ -33,11 +33,17 @@ public class SearchPresenter implements SearchContract.Presenter{
 
     @Override
     public void searchWeather(String city) {
-        GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        getCurrentWeather(city, service);
+        if (!city.isEmpty()){
+            GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
 
-        getForecastWeather(city, service);
+            getCurrentWeather(city, service);
+
+            getForecastWeather(city, service);
+
+        } else {
+            mView.warnEmptyTextView();
+        }
 
         mView.closeKeyboard();
     }
@@ -56,7 +62,8 @@ public class SearchPresenter implements SearchContract.Presenter{
 
             @Override
             public void onFailure(Call<CurrentWeatherRequestResponse> call, Throwable t) {
-                onApiResponse();
+                Log.e("RequestFail","Falha ao chamar currentcast");
+                mView.warnErrorOccurred();
             }
         });
     }
@@ -72,12 +79,14 @@ public class SearchPresenter implements SearchContract.Presenter{
                     mTodayForecastWeather = forecastInformation.getTodayForecast();
                     mTomorrowForecastWeather = forecastInformation.getTomorrowForecast();
                     onApiResponse();
+                } else {
+                    mView.warnCityNotFound();
                 }
             }
 
             @Override
             public void onFailure(Call<ForecastWeatherRequestResponse> call, Throwable t) {
-                onApiResponse();
+                Log.e("RequestFail","Falha ao chamar forecast");
             }
         });
     }
