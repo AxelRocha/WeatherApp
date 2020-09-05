@@ -1,7 +1,6 @@
 package com.example.weatherapp.ui.search;
 
 import com.example.weatherapp.model.CurrentWeather;
-import com.example.weatherapp.model.ForecastInformation;
 import com.example.weatherapp.model.ForecastWeather;
 import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherRequestResponse;
 import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
@@ -69,9 +68,8 @@ public class SearchPresenter implements SearchContract.Presenter{
             @Override
             public void onResponse(Call<ForecastWeatherRequestResponse> call, Response<ForecastWeatherRequestResponse> response) {
                 if (response.body() != null){
-                    ForecastInformation forecastInformation = new ForecastInformation(response.body());
-                    mTodayForecastWeather = forecastInformation.getTodayForecast();
-                    mTomorrowForecastWeather = forecastInformation.getTomorrowForecast();
+                    mTodayForecastWeather = response.body().getTodayForecast();
+                    mTomorrowForecastWeather = response.body().getTomorrowForecast();
                     onApiResponse();
                 } else {
                     mView.warnCityNotFound();

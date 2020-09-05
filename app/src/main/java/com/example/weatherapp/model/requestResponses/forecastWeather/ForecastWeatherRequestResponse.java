@@ -1,5 +1,6 @@
 package com.example.weatherapp.model.requestResponses.forecastWeather;
 
+import com.example.weatherapp.model.ForecastWeather;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -27,6 +28,32 @@ public class ForecastWeatherRequestResponse {
         this.state = state;
         this.country = country;
         this.data = data;
+    }
+
+    public ForecastWeather getTodayForecast(){
+        return new ForecastWeather(
+                this.data.get(0).getValidDate(),
+                this.city,
+                this.state,
+                this.data.get(0).getMaxTemp(),
+                this.data.get(0).getMinTemp(),
+                this.data.get(0).getProbPrecipitation(),
+                this.data.get(0).getForecastWeatherDescription().getDescription(),
+                this.data.get(0).getForecastWeatherDescription().getWeatherCode()
+        );
+    }
+
+    public ForecastWeather getTomorrowForecast(){
+        return new ForecastWeather(
+                this.data.get(1).getValidDate(),
+                this.city,
+                this.state,
+                this.data.get(1).getMaxTemp(),
+                this.data.get(1).getMinTemp(),
+                this.data.get(1).getProbPrecipitation(),
+                this.data.get(1).getForecastWeatherDescription().getDescription(),
+                this.data.get(1).getForecastWeatherDescription().getWeatherCode()
+        );
     }
 
     public String getCity() {
