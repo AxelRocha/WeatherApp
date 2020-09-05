@@ -120,7 +120,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                tools:text="23^C"/>
+                tools:text="23°C"/>
 
         </LinearLayout>
 
@@ -171,7 +171,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                tools:text="33^C"/>
+                tools:text="33°C"/>
 
         </LinearLayout>
 
@@ -275,7 +275,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                tools:text="23^C"/>
+                tools:text="23°C"/>
 
         </LinearLayout>
 
@@ -325,7 +325,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                android:text="33^C"/>
+                tools:text="33°C"/>
 
         </LinearLayout>
 
