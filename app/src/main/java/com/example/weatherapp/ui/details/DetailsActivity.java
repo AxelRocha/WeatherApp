@@ -100,7 +100,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     private void populateWeatherInformations(CurrentWeather mCurrentWeather, ForecastWeather mTodayForecasWeather,  ForecastWeather mTomorrowForecasWeather) {
 
-        String location ="Previsão para " + mTodayForecasWeather.getCity();
+        String location = getResources().getString(R.string.forecast_to, mCurrentWeather.getCity());
         cityWeather.setText(location);
 
         populateCurrentWeatherInformation(mCurrentWeather, mTodayForecasWeather);
@@ -110,27 +110,27 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     private void populateCurrentWeatherInformation(CurrentWeather mCurrentWeather, ForecastWeather mForecastWeather) {
 
-        String currentDate = "Hoje (" + mForecastWeather.getValidDate() + ")";
+        String currentDate = getResources().getString(R.string.today, mForecastWeather.getValidDate());
         this.currentDate.setText(currentDate);
 
         mPresenter.getWeatherIcon(Integer.parseInt(mCurrentWeather.getWeatherCode()), false);
 
-        currentTemperature.setText(mCurrentWeather.getTemperature() + " °C");
-        currentMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
-        currentMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
+        currentTemperature.setText(getResources().getString(R.string.weather_celsius, mCurrentWeather.getTemperature()));
+        currentMinTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMinTemp()));
+        currentMaxTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMaxTemp()));
         currentDescription.setText(mCurrentWeather.getDescription());
 
     }
 
     private void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
 
-        String currentDate = "Amanhã (" + mForecastWeather.getValidDate() + ")";
+        String currentDate = getResources().getString(R.string.tomorrow, mForecastWeather.getValidDate());
         this.forecastDate.setText(currentDate);
 
         mPresenter.getWeatherIcon(Integer.parseInt(mForecastWeather.getWeatherCode()), true);
 
-        forecastMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
-        forecastMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
+        forecastMinTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMinTemp()));
+        forecastMaxTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMaxTemp()));
         forecastDescription.setText(mForecastWeather.getDescription());
 
     }
