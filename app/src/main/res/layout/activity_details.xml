@@ -19,7 +19,7 @@
         android:fontFamily="sans-serif-medium"
         android:textColor="#EFEFEF"
         android:textSize="20sp"
-        tools:text="Previsão para a Cidade de "
+        tools:text="@string/forecast_to"
         />
 
     <RelativeLayout
@@ -54,7 +54,7 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="0.1"
-            tools:text="Hoje"
+            tools:text="@string/today"
             />
 
         <TextView
@@ -70,7 +70,7 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="0.1"
-            android:text="TEMPERATURA"/>
+            android:text="@string/temperature"/>
 
         <TextView
             android:id="@+id/currentCelsiusTV"
@@ -109,7 +109,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                android:text="Mínima"/>
+                android:text="@string/minimum_temperature"/>
 
             <TextView
                 android:id="@+id/minCurrentCelsiusTV"
@@ -135,7 +135,8 @@
                 android:id="@+id/currentWeatherIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:src="@drawable/weather_820d" />
+                tools:src="@drawable/weather_820d"
+                android:contentDescription="@string/weather_icon_desc"/>
 
         </RelativeLayout>
 
@@ -160,7 +161,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                android:text="Máxima"/>
+                android:text="@string/maximum_temperature"/>
 
             <TextView
                 android:id="@+id/maxCurrentCelsiusTV"
@@ -225,7 +226,7 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="0.1"
-            tools:text="Amanhã"
+            tools:text="@string/tomorrow"
             />
 
         <TextView
@@ -241,7 +242,7 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="0.1"
-            android:text="PREVISÃO"/>
+            android:text="@string/forecast"/>
 
         <LinearLayout
             android:id="@+id/minFLinearLayout"
@@ -264,7 +265,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                android:text="Mínima"/>
+                android:text="@string/minimum_temperature"/>
 
             <TextView
                 android:id="@+id/minForecastCelsiusTV"
@@ -290,7 +291,8 @@
                 android:id="@+id/forecasttWeatherIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:src="@drawable/weather_820d" />
+                tools:src="@drawable/weather_820d"
+                android:contentDescription="@string/weather_icon_desc"/>
 
         </RelativeLayout>
 
@@ -314,7 +316,7 @@
                 android:shadowDx="4"
                 android:shadowDy="4"
                 android:shadowRadius="0.1"
-                android:text="Máxima"/>
+                android:text="@string/maximum_temperature"/>
 
             <TextView
                 android:id="@+id/maxForecastCelsiusTV"
@@ -342,7 +344,7 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="0.1"
-            android:text="Descrição"/>
+            tools:text="Descrição"/>
 
     </RelativeLayout>
 
@@ -355,7 +357,7 @@
         android:textColor="#EFEFEF"
         android:background="@drawable/curve_boder_colored"
         android:padding="8dp"
-        android:text="Refazer Pesquisa"
+        android:text="@string/re_do_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forecastWeather"/>
