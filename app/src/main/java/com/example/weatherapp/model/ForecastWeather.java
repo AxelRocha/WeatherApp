@@ -3,6 +3,7 @@ package com.example.weatherapp.model;
 import java.io.Serializable;
 
 public class ForecastWeather implements Serializable {
+
     private String validDate;
     private String city;
     private String state;
