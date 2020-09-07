@@ -91,24 +91,20 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     @Override
     protected void onStart() {
+
         super.onStart();
         mCurrentWeather = (CurrentWeather) getIntent().getSerializableExtra("currentWeather");
         mTodayForecasWeather = (ForecastWeather) getIntent().getSerializableExtra("todayForecastWeather");
         mTomorrowForecasWeather = (ForecastWeather) getIntent().getSerializableExtra("tomorrowForecastWeather");
-        populateWeatherInformations(mCurrentWeather, mTodayForecasWeather, mTomorrowForecasWeather);
+        mPresenter.populateWeatherInformations(mCurrentWeather, mTodayForecasWeather, mTomorrowForecasWeather);
+
     }
 
-    private void populateWeatherInformations(CurrentWeather mCurrentWeather, ForecastWeather mTodayForecasWeather,  ForecastWeather mTomorrowForecasWeather) {
+    @Override
+    public void populateCurrentWeatherInformation(CurrentWeather mCurrentWeather, ForecastWeather mForecastWeather) {
 
         String location = getResources().getString(R.string.forecast_to, mCurrentWeather.getCity());
         cityWeather.setText(location);
-
-        populateCurrentWeatherInformation(mCurrentWeather, mTodayForecasWeather);
-
-        populateForecastWeatherInformation(mTomorrowForecasWeather);
-    }
-
-    private void populateCurrentWeatherInformation(CurrentWeather mCurrentWeather, ForecastWeather mForecastWeather) {
 
         String currentDate = getResources().getString(R.string.today, mForecastWeather.getValidDate());
         this.currentDate.setText(currentDate);
@@ -120,10 +116,10 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
         currentWeatherIcon.setBackgroundResource(mCurrentWeather.getWeatherIcon());
         setWeatherGif(currentGif, mCurrentWeather.getWeatherBackground());
 
-
     }
 
-    private void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
+    @Override
+    public void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
 
         String currentDate = getResources().getString(R.string.tomorrow, mForecastWeather.getValidDate());
         this.forecastDate.setText(currentDate);
