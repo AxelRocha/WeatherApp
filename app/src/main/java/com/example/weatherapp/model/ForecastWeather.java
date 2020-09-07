@@ -11,6 +11,8 @@ public class ForecastWeather implements Serializable {
     private String probPrecipitation;
     private String description;
     private String weatherCode;
+    private int weatherIcon;
+    private int weatherBackground;
 
     public ForecastWeather(String validDate, String city, String state, String maxTemp, String minTemp, String probPrecipitation, String description, String weatherCode) {
         this.validDate = validDate;
@@ -85,5 +87,21 @@ public class ForecastWeather implements Serializable {
 
     public void setWeatherCode(String weatherCode) {
         this.weatherCode = weatherCode;
+    }
+
+    public int getWeatherIcon() {
+        return weatherIcon;
+    }
+
+    public void setWeatherIcon(int weatherIcon) {
+        this.weatherIcon = weatherIcon;
+    }
+
+    public int getWeatherBackground() {
+        return weatherBackground;
+    }
+
+    public void setWeatherBackground(int weatherBackground) {
+        this.weatherBackground = weatherBackground;
     }
 }
