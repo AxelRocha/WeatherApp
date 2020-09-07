@@ -54,8 +54,11 @@ public class SearchPresenter implements SearchContract.Presenter{
             @Override
             public void onResponse(Call<CurrentWeatherRequestResponse> call, Response<CurrentWeatherRequestResponse> response) {
                 if (response.body() != null){
+                    WeatherAssets currentAsset;
                     mCurrentWeather = new CurrentWeather(response.body().getData().get(0));
                     getWeatherAssets(Integer.parseInt(mCurrentWeather.getWeatherCode()), false);
+                    currentAsset = getWeatherAssets(Integer.parseInt(mTomorrowForecastWeather.getWeatherCode()), true);
+                    setWeatherAssets(currentAsset, false);
                     onApiResponse();
                 }
             }
@@ -73,9 +76,11 @@ public class SearchPresenter implements SearchContract.Presenter{
             @Override
             public void onResponse(Call<ForecastWeatherRequestResponse> call, Response<ForecastWeatherRequestResponse> response) {
                 if (response.body() != null){
+                    WeatherAssets forecastAsset;
                     mTodayForecastWeather = response.body().getTodayForecast();
                     mTomorrowForecastWeather = response.body().getTomorrowForecast();
-                    getWeatherAssets(Integer.parseInt(mTomorrowForecastWeather.getWeatherCode()), true);
+                    forecastAsset = getWeatherAssets(Integer.parseInt(mTomorrowForecastWeather.getWeatherCode()), true);
+                    setWeatherAssets(forecastAsset, true);
                     onApiResponse();
                 } else {
                     mView.warnCityNotFound();
@@ -99,7 +104,7 @@ public class SearchPresenter implements SearchContract.Presenter{
         }
     }
 
-    private void getWeatherAssets(int code, boolean isForecast) {
+    private WeatherAssets getWeatherAssets(int code, boolean isForecast) {
         WeatherAssets weatherAssets = new WeatherAssets();
 
         switch (code / 100){
@@ -126,10 +131,10 @@ public class SearchPresenter implements SearchContract.Presenter{
                 weatherAssets.setWeatherBackground(R.drawable.curve_border);
         }
 
-        updateWeatherObjects(weatherAssets, isForecast);
+        return weatherAssets;
     }
 
-    void updateWeatherObjects(WeatherAssets weatherAssets, boolean isForecast){
+    void setWeatherAssets(WeatherAssets weatherAssets, boolean isForecast){
         if (isForecast){
             mTomorrowForecastWeather.setWeatherIcon(weatherAssets.getWeatherIcon());
             mTomorrowForecastWeather.setWeatherBackground(weatherAssets.getWeatherBackground());
