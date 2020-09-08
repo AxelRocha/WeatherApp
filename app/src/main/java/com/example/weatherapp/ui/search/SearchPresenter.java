@@ -57,7 +57,7 @@ public class SearchPresenter implements SearchContract.Presenter{
                     WeatherAssets currentAsset;
                     mCurrentWeather = new CurrentWeather(response.body().getData().get(0));
                     getWeatherAssets(Integer.parseInt(mCurrentWeather.getWeatherCode()), false);
-                    currentAsset = getWeatherAssets(Integer.parseInt(mTomorrowForecastWeather.getWeatherCode()), true);
+                    currentAsset = getWeatherAssets(Integer.parseInt(mCurrentWeather.getWeatherCode()), true);
                     setWeatherAssets(currentAsset, false);
                     onApiResponse();
                 }
