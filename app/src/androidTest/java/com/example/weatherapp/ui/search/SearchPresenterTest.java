@@ -10,13 +10,22 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.Calendar;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
@@ -36,6 +45,9 @@ public class SearchPresenterTest {
 
     @Mock
     private Call<ForecastWeatherRequestResponse> forecastCall;
+
+    @Mock
+    private Callback<ForecastWeatherRequestResponse> callResponse;
 
     @Before
     public void setUp() {
@@ -65,7 +77,55 @@ public class SearchPresenterTest {
 
         presenter.searchWeather("", retrofit);
 
+        verify(view, times(1)).warnEmptyTextView();
+
         verify(retrofit, times(0)).getCurrentWeather("");
+    }
+
+    @Test
+    public void searchWeather_NullResponse() {
+        SearchPresenter presenter = new SearchPresenter(view);
+
+        when(retrofit.getForecastWeather(anyString())).thenReturn(forecastCall);
+
+        Mockito.doAnswer(new Answer() {
+                             @Override
+                             public Object answer(InvocationOnMock invocation) throws Throwable {
+
+                                 Callback callback = invocation.getArgumentAt(0, Callback.class);
+                                 callback.onResponse(forecastCall, Response.error(404, ResponseBody.create(null, "")));
+
+                                 return null;
+                             }
+                         }
+        ).when(forecastCall).enqueue(any(Callback.class));
+
+        presenter.getForecastWeather("Cuiaba", retrofit);
+
+        verify(view, times(1)).warnCityNotFound();
+    }
+
+    @Test
+    public void searchWeather_Failure() {
+        SearchPresenter presenter = new SearchPresenter(view);
+
+        when(retrofit.getForecastWeather(anyString())).thenReturn(forecastCall);
+
+        Mockito.doAnswer(new Answer() {
+                             @Override
+                             public Object answer(InvocationOnMock invocation) throws Throwable {
+
+                                 Callback callback = invocation.getArgumentAt(0, Callback.class);
+                                 callback.onFailure(forecastCall, new Exception());
+
+                                 return null;
+                             }
+                         }
+        ).when(forecastCall).enqueue(any(Callback.class));
+
+        presenter.getForecastWeather("Cuiaba", retrofit);
+
+        verify(view, times(1)).warnErrorOccurred();
     }
 
     @Test
