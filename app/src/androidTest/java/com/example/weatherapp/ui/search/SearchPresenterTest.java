@@ -4,7 +4,6 @@ import com.example.weatherapp.model.WeatherAssets;
 import com.example.weatherapp.model.requestResponses.currentWeather.CurrentWeatherRequestResponse;
 import com.example.weatherapp.model.requestResponses.forecastWeather.ForecastWeatherRequestResponse;
 import com.example.weatherapp.network.GetDataService;
-import com.example.weatherapp.ui.details.DetailsPresenter;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,8 +14,6 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-import java.io.IOException;
-import java.net.UnknownHostException;
 import java.util.Calendar;
 
 import okhttp3.ResponseBody;
@@ -24,9 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
