@@ -23,25 +23,25 @@ Objetivo era criar um App de Previsão do Tempo, onde na tela inicial é digitad
 
 * Teste de UI:
 
-    Testa o flow da aplicação, i.e, da tela inicial, digita a cidade e confere os campos contém informações do tempo na tela de Detalhes.
+    Testa o flow da aplicação, i.e, da tela inicial, digita a cidade e confere os campos contêm informações do tempo na tela de Detalhes.
     
 * Testes Instrumentados:
 
-    Testa os métodos das classes Presenter.
+    Testa os métodos das classes Presenter e suas interações com dependências e View.
     
 * Teste Unitário:
 
-    Testa métodos das classes Model.
+    Testa métodos das classes Model, Getters e Setters não testados.
 
 ## Arquitetura utilizada MVP
 
 O padrão de Arquitetura utilizado é o MVP, acrônimo para Movel-View-Presenter, esta arquitetura é uma derivação da MVC(Model-View-Controller). No MVP, o Presenter assume o papel do _intermediário_, é onde ocorre também grande parte da lógica de negócio da aplicação.
 
-* **View**: como no MVC, responde a saída e entrada de dados, porém a saída vem do Presenter, a entrada normalmente vem do usuário.
+* **View**: como no MVC, responde à saída e entrada de dados, porém a saída vem do Presenter, a entrada normalmente vem do usuário.
   
-* **Presenter**: Camada responsável por responder as invocações da camada de visualização e invocações da camada de modelo, além de também poder invocar ambas as camadas. O Presenter trabalha a formatação dos dados que entram em ambas as camadas paralelas e também pode incluir parte da lógica de negócio que alguns programadores podem pensar que deveria estar somente na camada de modelo.
+* **Presenter**: camada responsável por responder às invocações da camada de visualização e invocações da camada de modelo, além de também poder invocar ambas as camadas. O Presenter trabalha a formatação dos dados que entram em ambas as camadas paralelas e também pode incluir parte da lógica de negócio que alguns programadores podem pensar que deveria estar somente na camada de modelo.
 
-* **Model**: Camada fornecedora de dados além de conter a lógica de negócio do domínio do problema.
+* **Model**: camada fornecedora de dados além de conter a lógica de negócio do domínio do problema.
 
 [Referência](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter "Referencia Wikipedia sobre MVP")
 
