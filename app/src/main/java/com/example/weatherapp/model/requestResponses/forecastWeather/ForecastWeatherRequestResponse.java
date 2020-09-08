@@ -30,6 +30,9 @@ public class ForecastWeatherRequestResponse {
         this.data = data;
     }
 
+    public ForecastWeatherRequestResponse() {
+    }
+
     public ForecastWeather getTodayForecast(){
         return new ForecastWeather(
                 this.data.get(0).getValidDate(),
