@@ -47,7 +47,7 @@ public class SearchPresenter implements SearchContract.Presenter{
         mView.closeKeyboard();
     }
 
-    private void getCurrentWeather(String city, GetDataService service){
+    void getCurrentWeather(String city, GetDataService service){
 
         Call<CurrentWeatherRequestResponse> callCurrent = service.getCurrentWeather(city);
         callCurrent.enqueue(new Callback<CurrentWeatherRequestResponse>() {
@@ -69,7 +69,7 @@ public class SearchPresenter implements SearchContract.Presenter{
         });
     }
 
-    private void getForecastWeather(String city, GetDataService service){
+    void getForecastWeather(String city, GetDataService service){
 
         Call<ForecastWeatherRequestResponse> callForecast = service.getForecastWeather(city);
         callForecast.enqueue(new Callback<ForecastWeatherRequestResponse>() {
