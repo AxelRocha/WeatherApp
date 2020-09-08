@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+
+    <string name="weather_celsius">%1$s °C</string>
+    <string name="forecast_to">Previsão para %1$s</string>
+    <string name="today">Hoje (%1$s)</string>
+    <string name="tomorrow">Amanhã (%1$s)</string>
+
+    <string name="warn_empy_text">Digite uma cidade para pesquisar</string>
+    <string name="warn_city_not_found">Cidade pesquisada não encontrada</string>
+    <string name="warn_error_occurred">Não foi possível realizar a pesquisa</string>
+    <string name="temperature">TEMPERATURA</string>
+    <string name="minimum_temperature">Mínima</string>
+    <string name="maximum_temperature">Máxima</string>
+    <string name="forecast">PREVISÃO</string>
+    <string name="re_do_search">Refazer Pesquisa</string>
+    <string name="weather_icon_desc">Descrição</string>
 </resources>

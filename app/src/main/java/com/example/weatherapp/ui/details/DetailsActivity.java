@@ -91,84 +91,61 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrac
 
     @Override
     protected void onStart() {
+
         super.onStart();
         mCurrentWeather = (CurrentWeather) getIntent().getSerializableExtra("currentWeather");
         mTodayForecasWeather = (ForecastWeather) getIntent().getSerializableExtra("todayForecastWeather");
         mTomorrowForecasWeather = (ForecastWeather) getIntent().getSerializableExtra("tomorrowForecastWeather");
-        populateWeatherInformations(mCurrentWeather, mTodayForecasWeather, mTomorrowForecasWeather);
+        mPresenter.populateWeatherInformations(mCurrentWeather, mTodayForecasWeather, mTomorrowForecasWeather);
+
     }
 
-    private void populateWeatherInformations(CurrentWeather mCurrentWeather, ForecastWeather mTodayForecasWeather,  ForecastWeather mTomorrowForecasWeather) {
+    @Override
+    public void populateCurrentWeatherInformation(CurrentWeather mCurrentWeather, ForecastWeather mForecastWeather) {
 
-        String location ="Precisão para " + mTodayForecasWeather.getCity();
+        String location = getResources().getString(R.string.forecast_to, mCurrentWeather.getCity());
         cityWeather.setText(location);
 
-        populateCurrentWeatherInformation(mCurrentWeather, mTodayForecasWeather);
-
-        populateForecastWeatherInformation(mTomorrowForecasWeather);
-    }
-
-    private void populateCurrentWeatherInformation(CurrentWeather mCurrentWeather, ForecastWeather mForecastWeather) {
-
-        String currentDate = "Hoje (" + mForecastWeather.getValidDate() + ")";
+        String currentDate = getResources().getString(R.string.today, mForecastWeather.getValidDate());
         this.currentDate.setText(currentDate);
 
-        mPresenter.getWeatherIcon(Integer.parseInt(mCurrentWeather.getWeatherCode()), false);
-
-        currentTemperature.setText(mCurrentWeather.getTemperature() + " °C");
-        currentMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
-        currentMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
+        currentTemperature.setText(getResources().getString(R.string.weather_celsius, mCurrentWeather.getTemperature()));
+        currentMinTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMinTemp()));
+        currentMaxTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMaxTemp()));
         currentDescription.setText(mCurrentWeather.getDescription());
+        currentWeatherIcon.setBackgroundResource(mCurrentWeather.getWeatherIcon());
+        setWeatherGif(currentGif, mCurrentWeather.getWeatherBackground());
 
     }
 
-    private void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
+    @Override
+    public void populateForecastWeatherInformation(ForecastWeather mForecastWeather) {
 
-        String currentDate = "Amanhã (" + mForecastWeather.getValidDate() + ")";
+        String currentDate = getResources().getString(R.string.tomorrow, mForecastWeather.getValidDate());
         this.forecastDate.setText(currentDate);
 
-        mPresenter.getWeatherIcon(Integer.parseInt(mForecastWeather.getWeatherCode()), true);
-
-        forecastMinTemperature.setText(mForecastWeather.getMinTemp()+ " °C");
-        forecastMaxTemperature.setText(mForecastWeather.getMaxTemp()+ " °C");
+        forecastMinTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMinTemp()));
+        forecastMaxTemperature.setText(getResources().getString(R.string.weather_celsius, mForecastWeather.getMaxTemp()));
         forecastDescription.setText(mForecastWeather.getDescription());
+        forecastWeatherIcon.setBackgroundResource(mForecastWeather.getWeatherIcon());
+        setWeatherGif(forecastGif, mForecastWeather.getWeatherBackground());
+
+    }
+
+    private void setWeatherGif(GifImageView weatherGif, int weatherBackground) {
+
+        try {
+            GifDrawable gif = new GifDrawable(getResources(), weatherBackground);
+            gif.setCornerRadius(40);
+            weatherGif.setBackground(gif);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public void returnToSearchActivity() {
         finish();
-    }
-
-    @Override
-    public void setCurrentWeatherIcon(int weatherIcon) {
-        currentWeatherIcon.setBackgroundResource(weatherIcon);
-    }
-
-    @Override
-    public void setForecastWeatherIcon(int weatherIcon) {
-        forecastWeatherIcon.setBackgroundResource(weatherIcon);
-    }
-
-    @Override
-    public void setCurrentWeatherBackground(int weatherBackground) {
-        try {
-            GifDrawable gif = new GifDrawable(getResources(), weatherBackground);
-            gif.setCornerRadius(40);
-            currentGif.setBackground(gif);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void setForecastWeatherBackground(int weatherBackground) {
-        try {
-            GifDrawable gif = new GifDrawable(getResources(), weatherBackground);
-            gif.setCornerRadius(40);
-            forecastGif.setBackground(gif);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

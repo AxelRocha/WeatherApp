@@ -79,16 +79,16 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
 
     @Override
     public void warnEmptyTextView() {
-        Toast.makeText(this, "Digite uma cidade para pesquisar", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.warn_empy_text, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void warnCityNotFound() {
-        Toast.makeText(this, "Cidade pesquisada não encontrada", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.warn_city_not_found, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void warnErrorOccurred() {
-        Toast.makeText(this, "Não foi possível realizar a pesquisa", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.warn_error_occurred, Toast.LENGTH_SHORT).show();
     }
 }

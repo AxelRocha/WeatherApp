@@ -10,6 +10,8 @@ public class CurrentWeather implements Serializable {
     private String description;
     private String temperature;
     private String weatherCode;
+    private int weatherIcon;
+    private int weatherBackground;
 
     public CurrentWeather(CurrentWeatherInformation information) {
         this.city = information.getCity();
@@ -48,5 +50,21 @@ public class CurrentWeather implements Serializable {
 
     public void setWeatherCode(String weatherCode) {
         this.weatherCode = weatherCode;
+    }
+
+    public int getWeatherIcon() {
+        return weatherIcon;
+    }
+
+    public void setWeatherIcon(int weatherIcon) {
+        this.weatherIcon = weatherIcon;
+    }
+
+    public int getWeatherBackground() {
+        return weatherBackground;
+    }
+
+    public void setWeatherBackground(int weatherBackground) {
+        this.weatherBackground = weatherBackground;
     }
 }

@@ -1,16 +1,13 @@
 package com.example.weatherapp.ui.details;
 
-import com.example.weatherapp.model.WeatherAssets;
+import com.example.weatherapp.model.CurrentWeather;
+import com.example.weatherapp.model.ForecastWeather;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.Calendar;
-
-import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -18,6 +15,15 @@ public class DetailsPresenterTest {
 
     @Mock
     private DetailsContract.View view;
+
+    @Mock
+    private CurrentWeather currentWeather;
+
+    @Mock
+    private ForecastWeather todayForecastWeather;
+
+    @Mock
+    private ForecastWeather tomorrowForecastWeather;
 
     @Before
     public void setUp() {
@@ -35,114 +41,20 @@ public class DetailsPresenterTest {
     }
 
     @Test
-    public void getCurrentWeatherIcon() {
+    public void populateCurrentWeatherInformations() {
         DetailsPresenter presenter = new DetailsPresenter(view);
 
-        presenter.getWeatherIcon(anyInt(), false);
+        presenter.populateWeatherInformations(currentWeather, todayForecastWeather, tomorrowForecastWeather);
 
-        verify(view, times(1)).setCurrentWeatherIcon(anyInt());
-        verify(view, times(0)).setForecastWeatherIcon(anyInt());
+        verify(view, times(1)).populateCurrentWeatherInformation(currentWeather, todayForecastWeather);
     }
 
     @Test
-    public void getForecastWeatherIcon() {
+    public void populateForecastWeatherInformations() {
         DetailsPresenter presenter = new DetailsPresenter(view);
 
-        presenter.getWeatherIcon(anyInt(), true);
+        presenter.populateWeatherInformations(currentWeather, todayForecastWeather, tomorrowForecastWeather);
 
-        verify(view, times(0)).setCurrentWeatherIcon(anyInt());
-        verify(view, times(1)).setForecastWeatherIcon(anyInt());
-    }
-
-    @Test
-    public void getSunnyIcon() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        WeatherAssets weatherAssets;
-
-        weatherAssets = presenter.getSunnyAssets(800, true);
-
-        Assert.assertNotNull(weatherAssets);
-        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
-        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
-    }
-
-    @Test
-    public void getCloudyIcon() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        WeatherAssets weatherAssets;
-
-        weatherAssets = presenter.getSunnyAssets(800, true);
-
-        Assert.assertNotNull(weatherAssets);
-        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
-        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
-    }
-
-    @Test
-    public void getSnowIcon() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        WeatherAssets weatherAssets;
-
-        weatherAssets = presenter.getSunnyAssets(600, true);
-
-        Assert.assertNotNull(weatherAssets);
-        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
-        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
-    }
-
-    @Test
-    public void getRainIcon() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        WeatherAssets weatherAssets;
-
-        weatherAssets = presenter.getSunnyAssets(500, true);
-
-        Assert.assertNotNull(weatherAssets);
-        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
-        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
-    }
-
-    @Test
-    public void getDrizzleIcon() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        WeatherAssets weatherAssets;
-
-        weatherAssets = presenter.getSunnyAssets(300, true);
-
-        Assert.assertNotNull(weatherAssets);
-        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
-        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
-    }
-
-
-    @Test
-    public void getThunderIcon() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        WeatherAssets weatherAssets;
-
-        weatherAssets = presenter.getSunnyAssets(200, true);
-
-        Assert.assertNotNull(weatherAssets);
-        Assert.assertNotEquals(0,weatherAssets.getWeatherIcon());
-        Assert.assertNotEquals(0,weatherAssets.getWeatherBackground());
-    }
-
-    @Test
-    public void isSunUp() {
-        DetailsPresenter presenter = new DetailsPresenter(view);
-        boolean isSunNow = false;
-        boolean isSunTest;
-        int currentHour;
-
-        Calendar rightNow = Calendar.getInstance();
-        currentHour = rightNow.get(Calendar.HOUR_OF_DAY);
-
-        if (currentHour > 6 && currentHour < 19){
-            isSunNow = true;
-        }
-
-        isSunTest = presenter.isSunUp();
-
-        Assert.assertEquals(isSunNow, isSunTest);
+        verify(view, times(1)).populateForecastWeatherInformation(tomorrowForecastWeather);
     }
 }
